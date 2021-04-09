@@ -13,22 +13,13 @@ class StoreTableSeeder extends Seeder
      */
     public function run()
     {
+
       $stores = \App\Models\Store::all();
 
       foreach ($stores as $store)
       {
-         $store->products()->save(factory(\App\Models\Product::class)->make());
-
-        // $store->products()
-        //       ->factory(\App\Models\Product::class)->make());
-        //
-        // $store->has(\App\Models\Product::factory(1))
-        //       ->create();
-
-              // \App\Models\Store::all()
-              //                 ->has(\App\Models\Product::factory(1))
-              //                 ->create();
-
+         $store->products()->save(\App\Models\Product::factory()->make());
+       //$store->products()->save(factory(\App\Models\Product::class)->make());
       }
     }
 }
