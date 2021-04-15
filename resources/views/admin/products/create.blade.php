@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Criar Loja</h1>
-    <form action="{{route('admin.stores.store')}}" method="post">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
+    <h1>Criar Produto</h1>
+    <form action="{{route('admin.products.store')}}" method="post">
+        @csrf
 
         <div class="form-group">
-            <label>Nome Loja</label>
+            <label>Nome Produto</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
             @error('name')
                 <div class="invalid-feedback">
@@ -26,9 +26,9 @@
         </div>
 
         <div class="form-group">
-            <label>Telefone</label>
-            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" value="{{old('phone')}}">
-            @error('phone')
+            <label>Conteúdo</label>
+            <textarea name="body" id="" rows="10" cols="30" class="form-control @error('body') is-invalid @enderror" value="{{old('body')}}"></textarea>
+            @error('body')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
@@ -36,9 +36,9 @@
         </div>
 
         <div class="form-group">
-            <label>Celular / Whatsapp</label>
-            <input type="text" name="mobile_phone" class="form-control @error('mobile_phone') is-invalid @enderror" value="{{old('mobile_phone')}}">
-            @error('mobile_phone')
+            <label>Preço</label>
+            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{old('price')}}">
+            @error('price')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
@@ -51,7 +51,7 @@
         </div>
 
         <div>
-            <button type="submit" class="btn btn-lg btn-success">Criar Loja</button>
+            <button type="submit" class="btn btn-lg btn-success">Criar Produto</button>
         </div>
     </form>
 @endsection
